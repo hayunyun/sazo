@@ -18,10 +18,12 @@ from django.urls import path, include
 from student1 import views as s_views
 from student1 import urls as s_urls
 from Day import urls as D_urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', s_views.main, name="main"),
     path('', include(s_urls)),
     path('', include(D_urls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

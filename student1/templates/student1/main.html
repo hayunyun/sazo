@@ -71,14 +71,17 @@
                 <p>
                 <div class="container_location">
                     <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         지역 선택
                       </button>
+               
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item select" href="#">강원도</a>
-                        <a class="dropdown-item select" href="#">경상도</a>
-                        <a class="dropdown-item select" href="#">충청도</a>
-                        <a class="dropdown-item select" href="#">전라도</a>
+                        <a class="dropdown-item select">강원도</a>
+                        <a class="dropdown-item select">경상도</a>
+                        <a class="dropdown-item select">충청도</a>
+                        <a class="dropdown-item select">전라도</a>
+                      </div>
+                         
                       </div>
                     </div>
                 </div>
@@ -101,12 +104,16 @@
                     <div class="text_3">
                         명소를 알아볼까요? 고민보다 GO는 이미지를 기반으로<br> 여러분들에게 숨겨진 여행지를 추천해줍니다.
                     </div>
+                    <br><br>
+                    <div class="lovely">
+                    <img src="{% static 'image/snowflake.png' %}" id="lovely" style="width: 18rem;">
+                    </div>
                 </div>
 
-
+                <br><br>    
                 <div class="container_roulette">
                     <a href="{% url 'first' %}">
-                        <div class="roulette">룰렛이다</div>
+                        
                     </a>
                 </div>
                 
@@ -127,10 +134,14 @@
 
 {% block js %}
 <script type="text/javascript">
-  $('.select').on('click', function(){
-    var val = $(this).text();
-    window.location.replace('/random_results?area=' + val);
-  });
+
+
+    $(".dropdown-menu").on('click', 'a', function(){
+      $("#dropdownMenuButton").text($(this).text());
+      $("#dropdownMenuButton").val($(this).text());
+    });
+
+
 </script>
 <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 
@@ -155,6 +166,26 @@
             }, 500);
         });
     });
+
+</script>
+<script>
+    function onClick() {
+        this.removeAttribute('style');
+        
+        var deg = 500 + Math.round(Math.random() * 500);
+        
+        var css = '-webkit-transform: rotate(' + deg + 'deg);';
+        
+        this.setAttribute(
+            'style', css
+        );
+        var region = $("#dropdownMenuButton").val();
+        setTimeout(function() {
+            window.location.replace('/recommended?region=' + region);
+        }, 2000);
+    }
+    var img = document.getElementById('lovely');
+    img.addEventListener('click', onClick, false);
 
 </script>
 {% endblock %}

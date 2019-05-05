@@ -1,31 +1,31 @@
-{% extends 'base.html' %}
 {% load staticfiles %}
 
-
-
-{% block content %}
-{{ random_place.name }}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ random_place.name }}</title>
+	<link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
 
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+  <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
 
-    <title>2</title>
-    <link rel="stylesheet" href="style2.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900|Poppins:400,700,800,900|Roboto:300,400,500,700,900" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/style3.css' %}">
 </head>
-
 <body>
-    <div class="header_container">
+   <div class="header_container">
         <div class="header">
             <div class="logo">
                 <div class="logo_img">
-                    <a href="main.html"><ion-icon name="train"></ion-icon></a>
+                    <a href="{% url 'main' %}">
+                        <ion-icon name="train"></ion-icon>
+                    </a>
                 </div>
             </div>
 
@@ -38,81 +38,58 @@
             </nav>
         </div>
     </div>
-
-    <div class="title_container">
-        <div class="title">
-            <div class="text_1">여행지이름</div>
-            <div class="text_99">#여행주제</div>
-            <a class="button_scroll">
-                둘러보기
-            </a>
-        </div>
-
-    </div>
-
-    <div class="wrapper_1">
-        <div class="wrapper_2">
-            <div class="content">
-
-                <div class="text_align1">
-                    여행지내용을 추가해주세요
-                </div>
-
-
-                <div class="card_container">
-                    <div class="card_align">
-                        <div class="card">
-                            <div id="img">#여행주제1</div>
-                        </div>
-                        <div class="card">
-                            <div id="img">#여행주제2</div>
-                        </div>
-                        <div class="card">
-                            <div id="img">#여행주제3</div>
-                        </div>
-                        <div class="card">
-                            <div id="img">#여행주제4</div>
-                        </div>
-
-                    </div>
-
-                    <div class="card_align">
-                        <div class="card">
-                            <div id="img">#여행주제5</div>
-                        </div>
-                        <div class="card">
-                            <div id="img">#여행주제6</div>
-                        </div>
-                        <div class="card">
-                            <div id="img">#여행주제7</div>
-                        </div>
-                        <div class="card">
-                            <div id="img">#여행주제8</div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="footer_blank">
-            
-                </div>
+  <!--================Header Menu Area =================-->
+  
+  <main class="site-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="single-recent-blog-post">
+            <div class="thumb">
+              <img class="img-fluid" src="{{ random_place.photo.url }}" alt="">
+              <ul class="thumb-info">
+                <li><a href="#"><i class="ti-user"></i>{{ random_place.name }}</a></li>
+                <li><a href="#"><i class="ti-notepad"></i>{{ random_place.time }}</a></li>
+                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+              </ul>
             </div>
+            <div class="details mt-20">
+              <p class="tag-list-inline">#{{ random_place.theme }}</a></p>
+              <p>{{ random_place.description | urlize }}</p>
+            </div>
+          </div>
         </div>
-        <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+      </div>
+    </div>
+    
+    <!--================Hero Banner end =================-->  
 
+    <!--================ Blog slider start =================-->  
+    <section>
+      <div class="container">
+        <div class="owl-carousel owl-theme blog-slider">
+          {% for trip in sample_places %}
+          <div class="card blog__slide text-center">
+            <div class="blog__slide__img">
+              <img class="card-img rounded-0" src="{{ trip.photo.url }}" alt="">
+            </div>
 
-        <script>
-            $(document).ready(function() {
-                $(".button_scroll").click(function(event) {
-                    event.preventDefault();
-                    $('html,body').stop().animate({
-                        scrollTop: '882px'
-                    }, 800);
-                });
-            });
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
 
-        </script>
+  </main>
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+  <script src="{% static 'js/mail-script.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  
+  <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    
 </body>
-
 </html>
-
-{% endblock %}

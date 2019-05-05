@@ -21,5 +21,9 @@ def first(request):
     region = request.GET.get('region')
     sample_places = Trip.objects.filter(region=region)
     random_place = random.choice(sample_places)
+    context = {
+        'random_place':random_place,
+        'sample_places': sample_places,
+    }
             
-    return redirect('first', {'random_place':random_place})
+    return render(request, 'student1/first.html', context)

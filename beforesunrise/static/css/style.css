@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+img#lovely {
+    -webkit-transition: -webkit-transform 2s ease-out;
+}
+
 p {
     text-align:center;
 }
@@ -78,7 +82,7 @@ nav ul li {
 
     padding-top: 80px;
 
-    height: 800px;
+    height: 850px;
 
 /*    border: 1px solid gray;*/
 
@@ -190,7 +194,7 @@ nav ul li {
     font-size: 40px;
     color: #000000;
     letter-spacing: -0.52px;
-    margin-top: -45px;
+    margin-top: -60px;
 
     opacity: 0.8;
 }
@@ -216,6 +220,8 @@ nav ul li {
 .container_button{
     display: flex;
     justify-content: center;
+    
+    height: 300px;
 }
 
 .button_scroll2 {
@@ -268,3 +274,23 @@ footer {
 }
 
 /*------footer------*/
+
+
+
+.dropdown{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    margin: 200px 0;
+}
+
+
+
+.lovely{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+    margin: 50px 0;
+}
