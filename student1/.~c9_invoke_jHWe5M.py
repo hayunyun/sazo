@@ -6,11 +6,10 @@ def main(request):
     
     
 def random_results(request):
-    area = request.GET.get('area')
+    if
     
     if area == "경상도":
         places = ['감자밭', '고구마밭', '성원집']
-        
         
         place = random.choice(places)
     return render(request, 'student1/random_results.html', {'area': area, 'place': place})

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>모델링!</h1>
+
+
+<form action = "{% url 'modeling' %}" method = "POST">
+
+    {% csrf_token %}
+    <label>여행지 이름</label><br>
+    <input type="text" name="name"></input>
+    
+    <br><br>
+    
+    <label>지역</label><br>
+    <input type="text" name="region"></input>
+    
+    <br><br>
+    
+    <label>주소</label><br>
+   <textarea class="form-control" name="address"></textarea>
+    
+    <br><br>
+    
+    <label>설명</label><br>
+   <textarea class="form-control" name="description"></textarea>
+    
+    <br><br>
+    
+    <label>가격</label><br>
+   <input type="text" name="price"></input>
+   <br><br>
+   <label>시간</label><br>
+   <input type="text" name="time"></input>
+   <br><br>
+   <label>사진</label><br>
+   <input type="image" name="photo"></input>
+   
+    <br><br>
+    <input type="submit" class="btn btn-dark" value="등록"></input>
+
+
+
+</form>
+</p>
+
+{% endblock %}

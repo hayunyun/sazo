@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+{% for item in trips %}
+
+<div class="row">
+  <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">{{ item.address }}</p>
+            <p class="card-text">{{ item.price }}</p>
+            <p class="card-text">{{ item.time }}</p>
+            <p class="card-text">
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+    </div>
+</div>    
+  
+{% endfor %}
+
+
+{% endblock %}

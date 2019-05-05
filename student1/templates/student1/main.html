@@ -10,14 +10,24 @@
     지역 선택
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">강원도</a>
-    <a class="dropdown-item" href="#">경상도</a>
-    <a class="dropdown-item" href="#">충청도</a>
-    <a class="dropdown-item" href="#">전라도</a>
+    <a class="dropdown-item select" href="#">강원도</a>
+    <a class="dropdown-item select" href="#">경상도</a>
+    <a class="dropdown-item select" href="#">충청도</a>
+    <a class="dropdown-item select" href="#">전라도</a>
   </div>
 </div>
 
 <br><br>
-<button type="button" class="btn btn-outline-warning btn-lg">랜덤으로 돌리기</button>
+<span class="hello"></span>
+<a class="btn btn-outline-warning btn-lg" href="{% url 'first' %}">랜덤으로 돌리기</button>
 </p>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+  $('.select').on('click', function(){
+    var val = $(this).text();
+    window.location.replace('/random_results?area=' + val);
+  });
+</script>
 {% endblock %}
