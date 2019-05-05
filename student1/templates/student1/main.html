@@ -1,26 +1,128 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+
 
 {% block content %}
-<br><br>
-메인페이지 실험중
-<p>
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    지역 선택
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item select" href="#">강원도</a>
-    <a class="dropdown-item select" href="#">경상도</a>
-    <a class="dropdown-item select" href="#">충청도</a>
-    <a class="dropdown-item select" href="#">전라도</a>
-  </div>
-</div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<br><br>
-<span class="hello"></span>
-<a class="btn btn-outline-warning btn-lg" href="{% url 'first' %}">랜덤으로 돌리기</button>
-</p>
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title>1</title>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <!--<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900|Poppins:400,700,800,900|Roboto:300,400,500,700,900" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900|Poppins:700,800,900|Roboto:400,500,700,900" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header_container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo_img">
+                    <a href="{% url 'main' %}">
+                        <ion-icon name="train"></ion-icon>
+                    </a>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="title_container">
+        <div class="title">
+            <div class="text_1">고민 보다</div>
+            <div class="text_99">Go!</div>
+            <div class="text_1_1">고민보다 Go는 숨겨져있는 <br>국내 여행명소를 추천해주는 서비스입니다.</div>
+            <a class="button_scroll">
+                시작하기
+            </a>
+        </div>
+
+    </div>
+
+    <div class="wrapper_1">
+        <div class="wrapper_2">
+            <div class="content">
+
+                <div class="text_align1">
+                    <div class="text_number" id="target">01</div>
+
+                    <div class="text_2">
+                        여행지를 선택하세요
+                    </div>
+
+                    <br>
+                    <div class="text_3">
+                        원하는 국내 여행지가 있으신가요? 고민보다 Go는 <br> 여러분들에게 훌륭한 여행의 경험을 추천해줄 것입니다.
+                    </div>
+                </div>
+
+                <p>
+                <div class="container_location">
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        지역 선택
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item select" href="#">강원도</a>
+                        <a class="dropdown-item select" href="#">경상도</a>
+                        <a class="dropdown-item select" href="#">충청도</a>
+                        <a class="dropdown-item select" href="#">전라도</a>
+                      </div>
+                    </div>
+                </div>
+                </p>
+                
+                <div class="container_button">
+                    <a href="#" class="button_scroll2">
+                        다음으로
+                    </a>
+                </div>
+
+
+                <div class="text_align2">
+                    <div class="text_number" id="target2">02</div>
+
+                    <div class="text_2">
+                        룰렛을 돌려주세요 </div>
+
+                    <br>
+                    <div class="text_3">
+                        명소를 알아볼까요? 고민보다 GO는 이미지를 기반으로<br> 여러분들에게 숨겨진 여행지를 추천해줍니다.
+                    </div>
+                </div>
+
+
+                <div class="container_roulette">
+                    <a href="{% url 'first' %}">
+                        <div class="roulette">룰렛이다</div>
+                    </a>
+                </div>
+                
+            </div>        
+        </div>
+    </div>
+    <footer>
+        footer
+    </footer>
+
+</body>
+
+
+
+</html>
+
 {% endblock %}
 
 {% block js %}
@@ -29,5 +131,30 @@
     var val = $(this).text();
     window.location.replace('/random_results?area=' + val);
   });
+</script>
+<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".button_scroll").click(function(event) {
+            $('html, body').animate({
+                scrollTop: ($('#target').offset().top)
+            },500);
+         });
+        // $(".button_scroll").click(function(event) {
+        //     event.preventDefault();
+        //     $('html,body').animate({
+        //         scrollTop: '882px'
+        //     }, 800);
+        // });
+        
+         $(".button_scroll2").click(function(event) {
+            event.preventDefault();
+            $('html,body').animate({
+                scrollTop: ($('#target2').offset().top)
+            }, 500);
+        });
+    });
+
 </script>
 {% endblock %}

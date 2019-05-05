@@ -121,7 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'beforesunrise', 'static')
+    os.path.join(BASE_DIR, 'beforesunrise', 'static'),
+    os.path.join(BASE_DIR, 'student1', 'static'),
 ]
 
 MEDIA_URL = '/media/' # 항상 / 로 끝나도록 설정

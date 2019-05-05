@@ -4,7 +4,115 @@
 
 
 {% block content %}
-버튼누르면오는페이지
-<br>
-<a href="{% url 'modeling' %}">모델링하러가자</a>
+{{ random_place.name }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title>2</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900|Poppins:400,700,800,900|Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header_container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo_img">
+                    <a href="main.html"><ion-icon name="train"></ion-icon></a>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="title_container">
+        <div class="title">
+            <div class="text_1">여행지이름</div>
+            <div class="text_99">#여행주제</div>
+            <a class="button_scroll">
+                둘러보기
+            </a>
+        </div>
+
+    </div>
+
+    <div class="wrapper_1">
+        <div class="wrapper_2">
+            <div class="content">
+
+                <div class="text_align1">
+                    여행지내용을 추가해주세요
+                </div>
+
+
+                <div class="card_container">
+                    <div class="card_align">
+                        <div class="card">
+                            <div id="img">#여행주제1</div>
+                        </div>
+                        <div class="card">
+                            <div id="img">#여행주제2</div>
+                        </div>
+                        <div class="card">
+                            <div id="img">#여행주제3</div>
+                        </div>
+                        <div class="card">
+                            <div id="img">#여행주제4</div>
+                        </div>
+
+                    </div>
+
+                    <div class="card_align">
+                        <div class="card">
+                            <div id="img">#여행주제5</div>
+                        </div>
+                        <div class="card">
+                            <div id="img">#여행주제6</div>
+                        </div>
+                        <div class="card">
+                            <div id="img">#여행주제7</div>
+                        </div>
+                        <div class="card">
+                            <div id="img">#여행주제8</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="footer_blank">
+            
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+
+
+        <script>
+            $(document).ready(function() {
+                $(".button_scroll").click(function(event) {
+                    event.preventDefault();
+                    $('html,body').stop().animate({
+                        scrollTop: '882px'
+                    }, 800);
+                });
+            });
+
+        </script>
+</body>
+
+</html>
+
 {% endblock %}

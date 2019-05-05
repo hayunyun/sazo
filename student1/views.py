@@ -1,20 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import random
+from Day.models import Trip
 
 def main(request):
     return render(request, 'student1/main.html')
     
     
 def random_results(request):
-    area = request.GET.get('area')
+    region = request.GET.get('region')
     
-    if area == "경상도":
+    if region == "경상도":
         places = ['감자밭', '고구마밭', '성원집']
         
         
         place = random.choice(places)
-    return render(request, 'student1/random_results.html', {'area': area, 'place': place})
+    return render(request, 'student1/random_results.html', {'region': region, 'place': place})
 
 
 def first(request):
-    return render(request, 'student1/first.html')
+    region = request.GET.get('region')
+    sample_places = Trip.objects.filter(region=region)
+    random_place = random.choice(sample_places)
+            
+    return redirect('first', {'random_place':random_place})

@@ -21,7 +21,7 @@ from Day import urls as D_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', s_views.main),
+    path('', s_views.main, name="main"),
     path('', include(s_urls)),
     path('', include(D_urls)),
 ]
