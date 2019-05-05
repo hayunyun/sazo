@@ -1,3 +1,23 @@
-메인페이지 실험중
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-<a href="first">첫번째</a>
+{% block content %}
+<br><br>
+메인페이지 실험중
+<p>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    지역 선택
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">강원도</a>
+    <a class="dropdown-item" href="#">경상도</a>
+    <a class="dropdown-item" href="#">충청도</a>
+    <a class="dropdown-item" href="#">전라도</a>
+  </div>
+</div>
+
+<br><br>
+<button type="button" class="btn btn-outline-warning btn-lg">랜덤으로 돌리기</button>
+</p>
+{% endblock %}
