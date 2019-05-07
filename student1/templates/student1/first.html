@@ -39,6 +39,7 @@
         </div>
     </div>
   <!--================Header Menu Area =================-->
+  <div class="title"><h1>{{ random_place.region }} 지역 추첨 결과</h1></div>
   
   <main class="site-main">
     <div class="container">
@@ -48,14 +49,15 @@
             <div class="thumb">
               <img class="img-fluid" src="{{ random_place.photo.url }}" alt="">
               <ul class="thumb-info">
+                
                 <li><a href="#"><i class="ti-user"></i>{{ random_place.name }}</a></li>
                 <li><a href="#"><i class="ti-notepad"></i>{{ random_place.time }}</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+                
               </ul>
             </div>
             <div class="details mt-20">
               <p class="tag-list-inline">#{{ random_place.theme }}</a></p>
-              <p>{{ random_place.description | urlize }}</p>
+              <p>{{ random_place.description | linebreaks | urlize }}</p>
             </div>
           </div>
         </div>
@@ -63,7 +65,9 @@
     </div>
     
     <!--================Hero Banner end =================-->  
-
+<div class="choo">
+<h2>인근 추천 명소</h2><br>
+</div>
     <!--================ Blog slider start =================-->  
     <section>
       <div class="container">
@@ -72,6 +76,9 @@
           <div class="card blog__slide text-center">
             <div class="blog__slide__img">
               <img class="card-img rounded-0" src="{{ trip.photo.url }}" alt="">
+            </div>
+            <div class="blog__slide__name">
+              <p><br>{{ trip.name }}</p>
             </div>
 
           </div>

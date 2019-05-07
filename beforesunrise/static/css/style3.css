@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");@import url("https://fonts.googleapis.com/css?family=Lora:400,700");body{color:#797979;font-family:"Source Sans Pro",sans-serif;font-weight:400;line-height:1.625}
 
+.title{
+    display: flex;
+    justify-content:center;
+    align-itmes:center;
+    
+    margin:30px 0;
+        font-family: NotoSansKR-Black;
+    font-size: 30px;
+}
+
 /*헤더입니다 ㅜ*/
 .header_container {
     width: 100%;
@@ -37,3 +47,20 @@ ul{list-style-type:none;margin:0;padding:0}a:hover{text-decoration:none}button{c
     width: 1200px !important;
     height: 600px !important;
 }
+
+/*.thumb{*/
+/*    display:flex;*/
+/*    justify-content:center;*/
+/*}*/
+
+.choo{
+    width:1280px;
+    margin:0 280px;
+}
+
+
+a {
+    color: gray;
+    text-decoration: none;
+}
+
