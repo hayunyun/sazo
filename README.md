@@ -1,4 +1,4 @@
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86ffc804-5f69-46af-8dd6-3b7cfeb25fe6/Untitled.png)
+![image](https://user-images.githubusercontent.com/50168998/144194655-d9e416c4-5d34-4c94-b1ae-68025a5ebefe.png)
 
 # sazo
 새뜻톤 프로젝트-고민보다GO
